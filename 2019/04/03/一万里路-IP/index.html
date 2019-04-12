@@ -75,6 +75,8 @@
 
 
 
+  <meta name="keywords" content="网络,IP,ARP,">
+
 
 
 
@@ -86,16 +88,18 @@
 
 
 
-<meta name="description" content="一百年真的很长吗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="曹操写码">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="互联网解决的是设备之间的连接问题，目标是让设备 A 的信息能准确的送达设备 B。为了实现这个目标，我们需要先了解互联网的结构。Internet其实是由无数个子网所构成，是一个二级的结构，第一级是子网，第二级才是子网中的设备（个体）。 1 什么是IP地址一种全世界都认同的表示格式,例: 192.168.6.6分4段，每一段8bit，总共32bit  IP 地址 = 网络号(寻找子网） + 主机号（寻">
+<meta name="keywords" content="网络,IP,ARP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一万里路（IP章）.md">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/一万里路-IP/index.html">
 <meta property="og:site_name" content="曹操写码">
-<meta property="og:description" content="一百年真的很长吗">
+<meta property="og:description" content="互联网解决的是设备之间的连接问题，目标是让设备 A 的信息能准确的送达设备 B。为了实现这个目标，我们需要先了解互联网的结构。Internet其实是由无数个子网所构成，是一个二级的结构，第一级是子网，第二级才是子网中的设备（个体）。 1 什么是IP地址一种全世界都认同的表示格式,例: 192.168.6.6分4段，每一段8bit，总共32bit  IP 地址 = 网络号(寻找子网） + 主机号（寻">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-12T06:46:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="曹操写码">
-<meta name="twitter:description" content="一百年真的很长吗">
+<meta name="twitter:title" content="一万里路（IP章）.md">
+<meta name="twitter:description" content="互联网解决的是设备之间的连接问题，目标是让设备 A 的信息能准确的送达设备 B。为了实现这个目标，我们需要先了解互联网的结构。Internet其实是由无数个子网所构成，是一个二级的结构，第一级是子网，第二级才是子网中的设备（个体）。 1 什么是IP地址一种全世界都认同的表示格式,例: 192.168.6.6分4段，每一段8bit，总共32bit  IP 地址 = 网络号(寻找子网） + 主机号（寻">
 
 
 
@@ -125,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/一万里路-IP/">
 
 
 
 
 
-  <title>曹操写码</title>
+  <title>一万里路（IP章）.md | 曹操写码</title>
   
 
 
@@ -150,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/caocao-melon" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -255,177 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/一万里路-DNS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="曹操吃瓜（melon cao)">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/logoko.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="曹操写码">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/03/一万里路-DNS/" itemprop="url">一万里路（IP章）.md</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T17:11:27+08:00">
-                2019-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机网络基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p>DNS (Domain Name System)， 也叫网域名称系统，是互联网的一项服务。它实质上是一个 域名 和 IP 相互映射的分布式数据库，有了它，我们就可以通过域名更方便的访问互联网。DNS使用TCP和UDP端口53。</p>
-</blockquote>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>DNS采用分布式的数据库结构</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/9/23/3a7b7303790037d1379d2ac829127aa0" alt="image"></p>
-<p>. =&gt; 根域名，<br>com =&gt; 顶级域名<br>chinaz =&gt; 二级域名<br>www =&gt; 三级域名</p>
-<p><strong>根DNS服务器：返回顶级域DNS服务器的IP地址</strong></p>
-<p>当我们访问<a href="http://www.xxx.com的时候,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。" target="_blank" rel="noopener">www.xxx.com的时候,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。</a></p>
-<p>目前全球有13个根域名解析服务器，这13条记录持久化在递归解析服务器中。DNS 协议使用了UDP查询，由于UDP查询中能保证性能的最大长度是512字节，要让所有根域名服务器数据能包含在512字节的UDP包中， 根服务器只能限制在13个。</p>
-<p><strong>顶级域DNS服务器：返回权威DNS服务器IP地址</strong><br>.cn .com 等所在的位置就是顶级域<br>顶级域名服务器主要负责管理在该顶级域名服务器注册的二级域名。像com这样的顶级域名，由ICANN 严格控制，是不允许随便创建的。</p>
-<p><strong>权威DNS服务器：返回主机IP地址</strong><br>权威DNS服务器是经过上一级授权，对域名进行解析的服务器，同时它可以把解析授权转授给其他人。</p>
-<h3 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h3><p>在实际上网中，我们不是直接连接根服务器，而是通过本地DNS服务器上网。我们通过浏览器或者应用程序访问互联网时，都会先执行一遍DNS解析流程。</p>
-<p>当一个主机发出DNS查询请求时，这个查询请求报文就发送给本地域名服务器，本地服务器替我们进行DNS解析,我们得到的ip地址是由本地服务器返回的。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/9/23/5916fc89a789d7fc3ff24b981e7fe91d" alt="image"></p>
-<p>在客户端的解析流程中，默认是先查找hosts文件，如果没有匹配到，再进行DNS解析。第四步请求本地DNS服务器去执行resolving，它会根据本地DNS服务器配置，发送解析请求到本地服务器（递归解析服务器）。</p>
-<p>如果主机所询问的本地服务器不知道被查询的域名的IP地址，那么本地服务器就以DNS客户的身份，向其它根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，表示无法查询到所需的IP地址。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/9/23/d30ca05abf14b4f94dfef920e91af412" alt="image"></p>
-<p>递归解析服务器通过请求一级一级的权威域名服务器，获得下一目标的地址，直到找到目标域名的权威域名服务器。<br>DNS访问量在实际操作中是很大的，所以会实现一定的缓存。递归查询过的域名不会的再走一遍流程，而是把上一次的解析结果的结果直接返回。</p>
-<h3 id="解析记录"><a href="#解析记录" class="headerlink" title="解析记录"></a>解析记录</h3><p><strong>A和AAAA记录</strong>：映射一个host到一个IP地址。A记录是被用来应一个host到一个IPv4的IP地址，而AAAAA记录则是用来映射一个host到一个IPv6的地址。</p>
-<p><strong>CNAME记录</strong>：记录定义了一个给定的服务（一个通过A记录或者AAAA记录定义的）名字的别名。</p>
-<p><strong>NS记录</strong>：解析服务器记录。用来表明由哪台服务器对该域名进行解析，这里的NS记录只对子域名生效。<br>优先级：NS记录优先于A记录。即，如果一个主机地址同时存在NS记录和A记录，则A记录不生效。这里的NS记录只对子域名生效。</p>
-<p><strong>MX记录</strong>：用来定义域名邮件交换。这可以帮助邮件消息正确到达邮件服务器。</p>
-<p><strong>PTR记录</strong>：定义一个名字和一个IP地址的关联。PTR记录是A和AAAA记录的反操作。</p>
-<p><strong>CAA记录</strong>：指定允许CA（证书颁发机构）为你的域名颁发SSL/TLS证书。</p>
-<hr>
-<p>参考文献<br><a href="https://juejin.im/post/59c6201df265da064428b835" target="_blank" rel="noopener">https://juejin.im/post/59c6201df265da064428b835</a><br><a href="http://www.sunhao.win/articles/netwrok-dns.html" target="_blank" rel="noopener">http://www.sunhao.win/articles/netwrok-dns.html</a></p>
-<p>这篇文章主要总结于部门分享，参考了以上网络上的参考文献。如有遗漏，请及时与我本人沟通 <a href="mailto:caocaochigua@outlook.com" target="_blank" rel="noopener">caocaochigua@outlook.com</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -455,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/03/一万里路-IP/" itemprop="url">一万里路（IP章）.md</a></h1>
+          <h1 class="post-title" itemprop="name headline">一万里路（IP章）.md</h1>
         
 
         <div class="post-meta">
@@ -529,9 +362,7 @@
       
 
       
-        
-          
-            <p>互联网解决的是设备之间的连接问题，目标是让设备 A 的信息能准确的送达设备 B。为了实现这个目标，我们需要先了解互联网的结构。Internet其实是由无数个子网所构成，是一个二级的结构，第一级是子网，第二级才是子网中的设备（个体）。</p>
+        <p>互联网解决的是设备之间的连接问题，目标是让设备 A 的信息能准确的送达设备 B。为了实现这个目标，我们需要先了解互联网的结构。Internet其实是由无数个子网所构成，是一个二级的结构，第一级是子网，第二级才是子网中的设备（个体）。</p>
 <h3 id="1-什么是IP地址"><a href="#1-什么是IP地址" class="headerlink" title="1 什么是IP地址"></a>1 什么是IP地址<br></h3><p>一种全世界都认同的表示格式,例: 192.168.6.6<br><br>分4段，每一段8bit，总共32bit</p>
 <blockquote>
 <p>IP 地址 = 网络号(寻找子网） + 主机号（寻找个体）<br></p>
@@ -565,8 +396,6 @@
 <p>参考文献<br><a href="https://juejin.im/post/5a37699ff265da430c11e9e5" target="_blank" rel="noopener">https://juejin.im/post/5a37699ff265da430c11e9e5</a><br><a href="https://juejin.im/post/5a44f5e86fb9a045211f040b" target="_blank" rel="noopener">https://juejin.im/post/5a44f5e86fb9a045211f040b</a><br><a href="https://juejin.im/post/59f1e319f265da430405db4a" target="_blank" rel="noopener">https://juejin.im/post/59f1e319f265da430405db4a</a><br><a href="https://juejin.im/entry/58d8a22844d90400687a99da" target="_blank" rel="noopener">https://juejin.im/entry/58d8a22844d90400687a99da</a></p>
 <p>这篇文章主要总结于部门分享，参考了以上网络上的参考文献。如有遗漏，请及时与我本人沟通 <a href="mailto:caocaochigua@outlook.com" target="_blank" rel="noopener">caocaochigua@outlook.com</a></p>
 
-          
-        
       
     </div>
     
@@ -581,14 +410,44 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i>网络</a>
+          
+            <a href="/tags/IP/" rel="tag"><i class="fa fa-tag"></i>IP</a>
+          
+            <a href="/tags/ARP/" rel="tag"><i class="fa fa-tag"></i>ARP</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/前端性能优化（一）-DOM/" rel="next" title="前端性能优化（一）- DOM">
+                <i class="fa fa-chevron-left"></i> 前端性能优化（一）- DOM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/03/一万里路-DNS/" rel="prev" title="一万里路（IP章）.md">
+                一万里路（IP章）.md <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -598,14 +457,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -613,6 +469,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -633,8 +493,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -719,6 +588,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是IP地址"><span class="nav-number">1.</span> <span class="nav-text">1 什么是IP地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常见的IP地址类型"><span class="nav-number">2.</span> <span class="nav-text">2 常见的IP地址类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-如何确定一个-IP-地址是属于-A-B-C-的哪一类呢"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 如何确定一个 IP 地址是属于 A B C 的哪一类呢</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#子网掩码（subnet-mask）"><span class="nav-number">2.1.1.</span> <span class="nav-text">子网掩码（subnet mask）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CIDR-无类型域间选路"><span class="nav-number">2.1.2.</span> <span class="nav-text">CIDR 无类型域间选路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-IP地址怎么配"><span class="nav-number">3.</span> <span class="nav-text">3 IP地址怎么配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DHCP"><span class="nav-number">3.1.</span> <span class="nav-text">DHCP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-IP地址怎么映射到MAC地址"><span class="nav-number">4.</span> <span class="nav-text">4 IP地址怎么映射到MAC地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP协议"><span class="nav-number">4.1.</span> <span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ARP是如何工作的"><span class="nav-number">4.2.</span> <span class="nav-text">ARP是如何工作的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-常见的地址查询命令"><span class="nav-number">5.</span> <span class="nav-text">5 常见的地址查询命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -853,6 +738,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
