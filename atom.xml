@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-12T06:50:47.000Z</updated>
+  <updated>2019-04-12T06:50:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,36 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>一万里路-DNS.md</title>
-    <link href="http://yoursite.com/2019/04/03/%E4%B8%80%E4%B8%87%E9%87%8C%E8%B7%AF-DNS/"/>
-    <id>http://yoursite.com/2019/04/03/一万里路-DNS/</id>
-    <published>2019-04-03T09:11:27.000Z</published>
-    <updated>2019-04-12T06:50:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote><p>DNS (Domain Name System)， 也叫网域名称系统，是互联网的一项服务。它实质上是一个 域名 和 IP 相互映射的分布式数据库，有了它，我们就可以通过域名更方便的访问互联网。DNS使用TCP和UDP端口53。</p></blockquote><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>DNS采用分布式的数据库结构</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/3a7b7303790037d1379d2ac829127aa0" alt="image"></p><p>. =&gt; 根域名，<br>com =&gt; 顶级域名<br>chinaz =&gt; 二级域名<br>www =&gt; 三级域名</p><p><strong>根DNS服务器：返回顶级域DNS服务器的IP地址</strong></p><p>当我们访问<a href="http://www.xxx.com的时候,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。" target="_blank" rel="noopener">www.xxx.com的时候,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。</a></p><p>目前全球有13个根域名解析服务器，这13条记录持久化在递归解析服务器中。DNS 协议使用了UDP查询，由于UDP查询中能保证性能的最大长度是512字节，要让所有根域名服务器数据能包含在512字节的UDP包中， 根服务器只能限制在13个。</p><p><strong>顶级域DNS服务器：返回权威DNS服务器IP地址</strong><br>.cn .com 等所在的位置就是顶级域<br>顶级域名服务器主要负责管理在该顶级域名服务器注册的二级域名。像com这样的顶级域名，由ICANN 严格控制，是不允许随便创建的。</p><p><strong>权威DNS服务器：返回主机IP地址</strong><br>权威DNS服务器是经过上一级授权，对域名进行解析的服务器，同时它可以把解析授权转授给其他人。</p><h3 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h3><p>在实际上网中，我们不是直接连接根服务器，而是通过本地DNS服务器上网。我们通过浏览器或者应用程序访问互联网时，都会先执行一遍DNS解析流程。</p><p>当一个主机发出DNS查询请求时，这个查询请求报文就发送给本地域名服务器，本地服务器替我们进行DNS解析,我们得到的ip地址是由本地服务器返回的。</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/5916fc89a789d7fc3ff24b981e7fe91d" alt="image"></p><p>在客户端的解析流程中，默认是先查找hosts文件，如果没有匹配到，再进行DNS解析。第四步请求本地DNS服务器去执行resolving，它会根据本地DNS服务器配置，发送解析请求到本地服务器（递归解析服务器）。</p><p>如果主机所询问的本地服务器不知道被查询的域名的IP地址，那么本地服务器就以DNS客户的身份，向其它根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，表示无法查询到所需的IP地址。</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/d30ca05abf14b4f94dfef920e91af412" alt="image"></p><p>递归解析服务器通过请求一级一级的权威域名服务器，获得下一目标的地址，直到找到目标域名的权威域名服务器。<br>DNS访问量在实际操作中是很大的，所以会实现一定的缓存。递归查询过的域名不会的再走一遍流程，而是把上一次的解析结果的结果直接返回。</p><h3 id="解析记录"><a href="#解析记录" class="headerlink" title="解析记录"></a>解析记录</h3><p><strong>A和AAAA记录</strong>：映射一个host到一个IP地址。A记录是被用来应一个host到一个IPv4的IP地址，而AAAAA记录则是用来映射一个host到一个IPv6的地址。</p><p><strong>CNAME记录</strong>：记录定义了一个给定的服务（一个通过A记录或者AAAA记录定义的）名字的别名。</p><p><strong>NS记录</strong>：解析服务器记录。用来表明由哪台服务器对该域名进行解析，这里的NS记录只对子域名生效。<br>优先级：NS记录优先于A记录。即，如果一个主机地址同时存在NS记录和A记录，则A记录不生效。这里的NS记录只对子域名生效。</p><p><strong>MX记录</strong>：用来定义域名邮件交换。这可以帮助邮件消息正确到达邮件服务器。</p><p><strong>PTR记录</strong>：定义一个名字和一个IP地址的关联。PTR记录是A和AAAA记录的反操作。</p><p><strong>CAA记录</strong>：指定允许CA（证书颁发机构）为你的域名颁发SSL/TLS证书。</p><hr><p>参考文献<br><a href="https://juejin.im/post/59c6201df265da064428b835" target="_blank" rel="noopener">https://juejin.im/post/59c6201df265da064428b835</a><br><a href="http://www.sunhao.win/articles/netwrok-dns.html" target="_blank" rel="noopener">http://www.sunhao.win/articles/netwrok-dns.html</a></p><p>这篇文章主要总结于部门分享，参考了以上网络上的参考文献。如有遗漏，请及时与我本人沟通 <a href="mailto:caocaochigua@outlook.com" target="_blank" rel="noopener">caocaochigua@outlook.com</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;DNS (Domain Name System)， 也叫网域名称系统，是互联网的一项服务。它实质上是一个 域名 和
-      
-    
-    </summary>
-    
-      <category term="计算机网络基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="DNS" scheme="http://yoursite.com/tags/DNS/"/>
-    
-      <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
-    
-      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
   
   <entry>
     <title>一万里路-IP.md</title>
@@ -68,11 +38,41 @@
       <category term="计算机网络基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
-    
       <category term="IP" scheme="http://yoursite.com/tags/IP/"/>
     
       <category term="ARP" scheme="http://yoursite.com/tags/ARP/"/>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一万里路-DNS.md</title>
+    <link href="http://yoursite.com/2019/04/03/%E4%B8%80%E4%B8%87%E9%87%8C%E8%B7%AF-DNS/"/>
+    <id>http://yoursite.com/2019/04/03/一万里路-DNS/</id>
+    <published>2019-04-03T09:11:27.000Z</published>
+    <updated>2019-04-12T06:55:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote><p>DNS (Domain Name System)， 也叫网域名称系统，是互联网的一项服务。它实质上是一个 域名 和 IP 相互映射的分布式数据库，有了它，我们就可以通过域名更方便的访问互联网。DNS使用TCP和UDP端口53。</p></blockquote><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>DNS采用分布式的数据库结构</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/3a7b7303790037d1379d2ac829127aa0" alt="image"></p><p>. =&gt; 根域名，<br>com =&gt; 顶级域名<br>chinaz =&gt; 二级域名<br>www =&gt; 三级域名</p><p><strong>根DNS服务器：返回顶级域DNS服务器的IP地址</strong></p><p>当我们访问<a href="https://www.caocaochigua.cn/" target="_blank" rel="noopener">www.caocaochigua.cn</a>的时候,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。,如果本地dns服务器没有记录，那么它就会向根服务器去请求地址。</p><p>目前全球有13个根域名解析服务器，这13条记录持久化在递归解析服务器中。DNS 协议使用了UDP查询，由于UDP查询中能保证性能的最大长度是512字节，要让所有根域名服务器数据能包含在512字节的UDP包中， 根服务器只能限制在13个。</p><p><strong>顶级域DNS服务器：返回权威DNS服务器IP地址</strong><br>.cn .com 等所在的位置就是顶级域<br>顶级域名服务器主要负责管理在该顶级域名服务器注册的二级域名。像com这样的顶级域名，由ICANN 严格控制，是不允许随便创建的。</p><p><strong>权威DNS服务器：返回主机IP地址</strong><br>权威DNS服务器是经过上一级授权，对域名进行解析的服务器，同时它可以把解析授权转授给其他人。</p><h3 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h3><p>在实际上网中，我们不是直接连接根服务器，而是通过本地DNS服务器上网。我们通过浏览器或者应用程序访问互联网时，都会先执行一遍DNS解析流程。</p><p>当一个主机发出DNS查询请求时，这个查询请求报文就发送给本地域名服务器，本地服务器替我们进行DNS解析,我们得到的ip地址是由本地服务器返回的。</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/5916fc89a789d7fc3ff24b981e7fe91d" alt="image"></p><p>在客户端的解析流程中，默认是先查找hosts文件，如果没有匹配到，再进行DNS解析。第四步请求本地DNS服务器去执行resolving，它会根据本地DNS服务器配置，发送解析请求到本地服务器（递归解析服务器）。</p><p>如果主机所询问的本地服务器不知道被查询的域名的IP地址，那么本地服务器就以DNS客户的身份，向其它根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，表示无法查询到所需的IP地址。</p><p><img src="https://user-gold-cdn.xitu.io/2017/9/23/d30ca05abf14b4f94dfef920e91af412" alt="image"></p><p>递归解析服务器通过请求一级一级的权威域名服务器，获得下一目标的地址，直到找到目标域名的权威域名服务器。<br>DNS访问量在实际操作中是很大的，所以会实现一定的缓存。递归查询过的域名不会的再走一遍流程，而是把上一次的解析结果的结果直接返回。</p><h3 id="解析记录"><a href="#解析记录" class="headerlink" title="解析记录"></a>解析记录</h3><p><strong>A和AAAA记录</strong>：映射一个host到一个IP地址。A记录是被用来应一个host到一个IPv4的IP地址，而AAAAA记录则是用来映射一个host到一个IPv6的地址。</p><p><strong>CNAME记录</strong>：记录定义了一个给定的服务（一个通过A记录或者AAAA记录定义的）名字的别名。</p><p><strong>NS记录</strong>：解析服务器记录。用来表明由哪台服务器对该域名进行解析，这里的NS记录只对子域名生效。<br>优先级：NS记录优先于A记录。即，如果一个主机地址同时存在NS记录和A记录，则A记录不生效。这里的NS记录只对子域名生效。</p><p><strong>MX记录</strong>：用来定义域名邮件交换。这可以帮助邮件消息正确到达邮件服务器。</p><p><strong>PTR记录</strong>：定义一个名字和一个IP地址的关联。PTR记录是A和AAAA记录的反操作。</p><p><strong>CAA记录</strong>：指定允许CA（证书颁发机构）为你的域名颁发SSL/TLS证书。</p><hr><p>参考文献<br><a href="https://juejin.im/post/59c6201df265da064428b835" target="_blank" rel="noopener">https://juejin.im/post/59c6201df265da064428b835</a><br><a href="http://www.sunhao.win/articles/netwrok-dns.html" target="_blank" rel="noopener">http://www.sunhao.win/articles/netwrok-dns.html</a></p><p>这篇文章主要总结于部门分享，参考了以上网络上的参考文献。如有遗漏，请及时与我本人沟通 <a href="mailto:caocaochigua@outlook.com" target="_blank" rel="noopener">caocaochigua@outlook.com</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;DNS (Domain Name System)， 也叫网域名称系统，是互联网的一项服务。它实质上是一个 域名 和
+      
+    
+    </summary>
+    
+      <category term="计算机网络基础" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="DNS" scheme="http://yoursite.com/tags/DNS/"/>
+    
+      <category term="域名" scheme="http://yoursite.com/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
